@@ -19,7 +19,7 @@ dropDownTop.forEach(dropTop => {
             selectId.classList.add("opac");
             
         }
-        let liFirst = selectId.querySelector("ul + li + a")
+        let liFirst = selectId.querySelector("ul > li > a")
         console.log(liFirst)
         liFirst.focus()
 
