@@ -1,21 +1,39 @@
 * {
     box-sizing: border-box;
-    margin:0
+    margin:0;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
-
+body {
+    margin: .5%;
+}
+header {
+    height: 20vh;
+}
+/*  Topic Selection */
 nav#drop-down-links {
     background-color: navajowhite;
-    border: 1px solid black;
-    font-size: 1.2rem;
+    border-top: 1px solid black;
     text-transform: capitalize;
+
 }
 nav#drop-down-links > ul {
     display: flex;
     justify-content: flex-start;
 }
+nav#drop-down-links > ul > li > a > h2 {
+    font-weight: 100;
+    font-size: 1.2rem;
+}
 nav#drop-down-links > ul > li{
-    margin: 1rem 0 1rem 2rem;
-    
+    background-color:antiquewhite;
+    border: 1px solid black;
+    position: relative;
+    top: -15px;
+    list-style: none;
+    border-radius: 10px;
+    padding: .3rem 1rem;
+    margin: 0 1.5rem 0 -1rem ;
 }
 nav#drop-down-links > ul > li > a{
     color: black;
@@ -24,6 +42,8 @@ nav#drop-down-links > ul > li > a{
 nav#drop-down-links > ul > li > a:visited{
     text-decoration: none;
 }
+
+/* Main Body Aside and Page Content */
 main {
     display: flex;
 }
@@ -37,27 +57,48 @@ main {
     height: 100%;
 }
 
+/* Side menu */
 aside#drop-downs {
     display: flex;
     flex-direction: column;
     border-right: 2px solid black;
     border-top: 0;
-    min-width: 176px;
+    min-width: 205px;
     width: 15%;
     background-color: navajowhite;    
+}
+
+#drop-downs > div > ul{
+    padding: .25rem 0;
+}
+#drop-downs > div > ul > li {
+    border: 1px solid black;
+    color: black;
+    /* margin-left: .5rem; */
+    list-style-type: none;
+    padding: .25rem;
+    /* padding: .25rem 0; */
+}
+#drop-downs > div > ul > li > ul > li{
+    list-style-type: square;
+}
+#drop-downs > div > ul > li > a:visited {
+    color: black;
 }
 .hide {
     display: none;
 }
-.show {
-    display: inline-block;
+@media screen and (max-width: 800px){
+    aside#drop-downs {
+        position: absolute;
+        transform: translate(-100%); 
+         transition: all .65s;
+    }
 }
-#drop-downs > div > ul > li {
-    padding: .25rem 0;
-}
-#drop-downs > div > ul > li {
-    padding: .25rem 0;
-}
-#drop-downs > div > ul > li > ul > li{
-    list-style-type: square;
+@media screen and (min-width: 801px){
+    aside#drop-downs {
+        position: relative;
+        transform: translate(0); 
+         transition: all 1s;
+    }
 }
