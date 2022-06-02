@@ -6,25 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>commandLineDocumenttion</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/dropDown.js" defer></script>
 </head>
 <body>
     <h1>Command Line Documentation</h1>
     <nav id="drop-down-links">
         <ul>
-            <li><a href="">Basics</a></li>
-            <li>bash scripiting</li>
+            <!-- <li><a href="#basics" class="drop-link-top">Basics</a></li> -->
+            <li><a href="#basics" class="drop-link-top">Basics</a></li>
+            <li><a href="#bash-scripting" class="drop-link-top">bash scripiting</a> </li>
             <li>idk yet</li>
         </ul>
     </nav>
+
     <main>
-        <aside id="drop-downs">
-            <div id="basics">
+        <aside id="drop-downs" class="opac">
+            <div id="basics" class="opac">
                 <ul>
-                    <li><a href="">File Managment</a></li>
+                    <li><a href="#" class="drop-link-aside">File Managment</a>
+                        <ul>
+                            <li><a href="#">mkdir</a></li>
+                        </ul>
+                    </li>
                     <li><a href="">Disk Management</a></li>
                 </ul>
             </div>
-            <div id="bash-scripting">
+            <div id="bash-scripting" class="opac">
                 <ul>
                     <li><a href="">basics</a></li>
                 </ul>
@@ -33,7 +40,7 @@
         
         <section id="section-select">
             <h2>Selected section</h2>
-            <iframe src="basics/01-creatingDirectories/creatingDirectories.html" frameborder="0"></iframe>
+            <!-- <iframe src="basics/01-creatingDirectories/creatingDirectories.html" frameborder="0"></iframe> -->
         </section>
     </main>
     
