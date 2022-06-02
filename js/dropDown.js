@@ -1,5 +1,20 @@
 const dropDownTop = document.querySelectorAll(".drop-link-top")
-const divDropDowns = document.getElementById("drop-downs")
+const main = document.querySelector("main")
+const mainContentDiv = document.getElementById("section-select")
+
+function hideTopics() {   
+    let topics = document.querySelectorAll("aside > .topic")
+    topics.forEach(topic => {
+        if(!topic.classList.contains("hide")){
+            topic.classList.add("hide")
+        }
+    })
+}
+hideTopics();
+
+function hideSubList(){
+    
+}
 
 
 dropDownTop.forEach(dropTop => {
@@ -8,26 +23,25 @@ dropDownTop.forEach(dropTop => {
         let idRef = e.target.getAttribute("href");
         idRef = idRef.slice(1)
         let selectId = document.getElementById(idRef)
-        
-
-        if(selectId.classList.contains("opac")){
-            divDropDowns.classList.remove("opac")
-            selectId.classList.remove("opac");
+        // Toggle Side Bar
+        if(selectId.classList.contains("hide")){
+            hideTopics();   
+            main.classList.remove("hide")
+            selectId.classList.remove("hide");
             
         } else {
-            divDropDowns.classList.add("opac");
-            selectId.classList.add("opac");
+            main.classList.add("hide");
+            selectId.classList.add("hide");
             
         }
+        // Focus on sidebar's first list element
         let liFirst = selectId.querySelector("ul > li > a")
-        console.log(liFirst)
         liFirst.focus()
-
+        // Hide sub list 
+        // console.log(selectId)
         
 
         
-
-
     
     })
 })

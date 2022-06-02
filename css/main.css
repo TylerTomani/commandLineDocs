@@ -46,8 +46,8 @@ aside#drop-downs {
     width: 15%;
     background-color: navajowhite;    
 }
-.opac {
-    opacity: 0;
+.hide {
+    display: none;
 }
 #drop-downs > div > ul > li {
     padding: .25rem 0;
