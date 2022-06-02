@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creatingSymbolicLinks</title>
+    <link rel="stylesheet" href="../../css/chapter.css">
+</head>
+<body>
+    <header>
+        <h1>Creating Symbolic Links</h1>
+    </header>
+    <main>
+        <section>
+        <h2>create a symbolic link</h2>
+        <h3 tabindex="1">ln -s file_name symlink_name</h3>
+        <p>refered to as "sym links"</p>
+        <p>they are similar to shortcuts and aliases </p>
+        <h3 tabindex="2"> ln file_name hardlink_name</h3>
+        <p>without the -s option unix will create a hard link, NOT a sym link</p>
+        <p>hard links work very differently and are rarely used</p>
+        <h3 tabindex="3">IMPORTANT NOTE</h3>
+        <p> unlike shortcuts and aliases, a sym link referes to a files' <strong>path</strong> and <strong>Not </strong>the actual file</p>
+        <p> this means the sym link <strong>breaks </strong> if the file is moved</p>
+        <img tabindex="4" src="images/symLink1.png" alt="sym link 1" class="imgHover">
+        <br>
+        <img tabindex="5" src="images/symLink2.png" alt="sym link 2" class="imgHover">
+        <br>
+        <h3 tabindex="6">IMPORTANT NOTE</h3>
+        <p>sym links are very useful when working with files within directories</p>
+        <p>for example if we have many versions of a project we can make a sym link to the current project</p>
+        <p>ln -s current releases/2021_02_04</p>
+        <p>would make a sym link that would bring us to that specific version without having to tranverse to that directory</p>
+        <img tabindex="7" src="images/symExample.png" alt="" class="imgH">
+        <br>
+        <img tabindex="8" src="images/symExample2.png" alt="" class="imgH">
+        </section>
+        
+
+
+    </main>
+
+</body>
+</html>

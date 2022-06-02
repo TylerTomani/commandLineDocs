@@ -49,6 +49,9 @@ aside#drop-downs {
 .hide {
     display: none;
 }
+.show {
+    display: inline-block;
+}
 #drop-downs > div > ul > li {
     padding: .25rem 0;
 }
