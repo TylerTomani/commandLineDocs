@@ -92,13 +92,13 @@ aside#drop-downs {
     aside#drop-downs {
         position: absolute;
         transform: translate(-100%); 
-         transition: all .65s;
+         transition: all .5s;
     }
 }
 @media screen and (min-width: 801px){
     aside#drop-downs {
         position: relative;
         transform: translate(0); 
-         transition: all 1s;
+        transition: all 750ms;
     }
 }

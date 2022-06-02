@@ -13,7 +13,6 @@
             }
         })
     }
-    hideTopics();
     
     function hideSubList(){
         asideSubList.forEach(subUL => {
