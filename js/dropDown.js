@@ -1,90 +1,74 @@
-(function(){
-    const dropDownTop = document.querySelectorAll(".drop-link-top");
-    const main = document.querySelector("main");
-    const mainContentDiv = document.getElementById("section-select");
-    const iframe = mainContentDiv.querySelector("iframe")
-    const asideSubList = document.querySelectorAll(".topic > ul > li > ul ");
-    
-    function hideTopics() {   
-        let topics = document.querySelectorAll("aside > .topic");
-        topics.forEach(topic => {
-            if(!topic.classList.contains("hide")){
-                topic.classList.add("hide");
-            }
-        })
-    }
-    
-    function hideSubList(){
-        asideSubList.forEach(subUL => {
-            if(!subUL.classList.contains("hide")){
-                subUL.classList.add("hide");
-            }
-        })
-    }
-    hideSubList()
-    
-    
-    dropDownTop.forEach(dropTop => {
-        dropTop.addEventListener("click",(e) =>{
-            e.preventDefault();
-            let idRef = e.target.getAttribute("href");
-            idRef = idRef.slice(1);
-            let selectId = document.getElementById(idRef);
-            // Toggle Side Bar
-            if(selectId.classList.contains("hide")){
-                hideTopics();   
-                // hideSubList() // I don't know if I want this to hide or not
-                main.classList.remove("hide");
-                selectId.classList.remove("hide");
-                
+const subjects = document.querySelectorAll(".subject");
+const sidebarSubjects = document.querySelectorAll(".sidebar-subject");
+const subLists = document.querySelectorAll(".sidebar-subject > ul > li > ul ");
+const mainContent = document.getElementById("main-content");
+const iframe = mainContent.querySelector("iframe");
+const allSubTopics = document.querySelectorAll("aside > div > ul > li > ul > li > a")
+/* Hide unselected top subject links. Have Basic Command Line subject in side bar
+   when page opens*/
+function hideSideSubjects(){
+    sidebarSubjects.forEach(sideSub => {
+        if(!sideSub.classList.contains('hide')){
+            sideSub.classList.add('hide');
+        }
+    })
+}
+subjects.forEach(subject => {   
+    // Toggle Subject Selection
+    subject.addEventListener('click',e => {
+        e.preventDefault();
+        let href = e.target.getAttribute('href');
+        let sideSelect = href.slice(1);
+        let selectedSubject = document.getElementById(sideSelect);
+        let firstLi = selectedSubject.querySelector("ul li a");
+        firstLi.setAttribute("tabindex","0");
+        firstLi.focus();
+        if(selectedSubject.classList.contains('hide')){
+            hideSideSubjects();
+            selectedSubject.classList.remove('hide');
+        } 
+    })
+})
+// Hide sub sidebar-subject lists
+function hideSubLists() {
+    subLists.forEach(sub => {        
+        if(sub.classList.contains('hide')){
+            sub.classList.remove('hide"')
+        } else {
+            sub.classList.add('hide')
+        }
+    })
+}
+hideSubLists()
+// sidebar-subjects Event Listener Toggle
+sidebarSubjects.forEach(topic => {
+    let topicLinks = topic.querySelectorAll("ul > li > a.topic-link")
+    topicLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault()
+            let parent = e.target.parentNode
+            let subList = parent.querySelector('ul')
+            if(!subList.classList.contains('hide')){
+                subList.classList.add('hide')
             } else {
-                main.classList.add("hide");
-                selectId.classList.add("hide");
-                
+                hideSubLists();
+                subList.classList.remove('hide')
             }
-            // Focus on sidebar's first list element
-            let liFirst = selectId.querySelector("ul > li > a");
-            liFirst.focus();
-            
-            // toggle Aside sub topic links
-    
-            let asideDropLinks = selectId.querySelectorAll("ul > li > a.drop-link-aside");
-            let toggle = false;
-            asideDropLinks.forEach(drop => {
-    
-                drop.addEventListener("click",e => {
-                    let parent = e.target.parentNode;
-                    let subUl = parent.querySelector("ul ");
-                   
-                    if(!toggle){
-                        hideSubList()
-                        subUl.classList.remove("hide");
-                    } else {
-                        subUl.classList.add("hide")
-                    }
-                    toggle = !toggle;
-                })
-    
-                // get href from a, put in ifram
-                let parent = drop.parentNode;
-                let norefs = parent.querySelectorAll("ul > li > ul > li > a.noref")
-                norefs.forEach(noref => {
-                    let toggle = false;
-                    noref.addEventListener("click", e => {
-                        let ref = e.target.nextElementSibling.getAttribute("href")
-                        if(!toggle){
-                            iframe.setAttribute("src",ref);
-                        } else {
-                            iframe.setAttribute("src","");
-    
-                        }
-                        toggle =! toggle;
-                    })
-                })
-            })
         })
     })
-    
-    
-    
-})()
+})
+//Fill Main-Content
+
+allSubTopics.forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        let nextA = e.target.nextElementSibling;
+        let href = nextA.getAttribute("href")
+        console.log(href)
+        iframe.src = href
+        console.log(iframe)
+
+    })
+})    
+
+

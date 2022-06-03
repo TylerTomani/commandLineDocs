@@ -8,24 +8,21 @@ body {
     margin: .5%;
 }
 header {
-    height: 20vh;
+    height: 10vh;
 }
 /*  Topic Selection */
-nav#drop-down-links {
+nav#subjects {
     background-color: navajowhite;
     border-top: 1px solid black;
     text-transform: capitalize;
 
 }
-nav#drop-down-links > ul {
+nav#subjects > ul {
     display: flex;
     justify-content: flex-start;
 }
-nav#drop-down-links > ul > li > a > h2 {
-    font-weight: 100;
-    font-size: 1.2rem;
-}
-nav#drop-down-links > ul > li{
+
+nav#subjects > ul > li{
     background-color:antiquewhite;
     border: 1px solid black;
     position: relative;
@@ -35,11 +32,11 @@ nav#drop-down-links > ul > li{
     padding: .3rem 1rem;
     margin: 0 1.5rem 0 -1rem ;
 }
-nav#drop-down-links > ul > li > a{
+nav#subjects > ul > li > a{
     color: black;
     text-decoration: none;
 }
-nav#drop-down-links > ul > li > a:visited{
+nav#subjects > ul > li > a:visited{
     text-decoration: none;
 }
 
@@ -58,20 +55,21 @@ main {
 }
 
 /* Side menu */
-aside#drop-downs {
+aside#side-bar {
     display: flex;
     flex-direction: column;
-    border-right: 2px solid black;
+    border-right: 1px solid black;
     border-top: 0;
     min-width: 205px;
+    height: 100vh;
     width: 15%;
     background-color: navajowhite;    
 }
 
-#drop-downs > div > ul{
+#side-bar > div > ul{
     padding: .25rem 0;
 }
-#drop-downs > div > ul > li {
+#side-bar > div > ul > li {
     border: 1px solid black;
     color: black;
     /* margin-left: .5rem; */
@@ -79,26 +77,41 @@ aside#drop-downs {
     padding: .25rem;
     /* padding: .25rem 0; */
 }
-#drop-downs > div > ul > li > ul > li{
+#side-bar > div > ul > li > ul > li{
     list-style-type: square;
 }
-#drop-downs > div > ul > li > a:visited {
+#side-bar > div > ul > li > a:visited {
     color: black;
+}
+iframe {
+
+    width: 100%;
+    height: 100vh;
 }
 .hide {
     display: none;
 }
+.show {
+    display: inline-block;
+}
 @media screen and (max-width: 800px){
-    aside#drop-downs {
+    header > h1 {
+        font-size: 1.5rem;
+    }
+    #subjects > ul > li {
+        padding: 0;
+        font-size: .9rem ;
+    }
+    aside#side-bar {
         position: absolute;
         transform: translate(-100%); 
-         transition: all .5s;
+         transition: all .65s;
     }
 }
 @media screen and (min-width: 801px){
-    aside#drop-downs {
+    aside#side-bar {
         position: relative;
         transform: translate(0); 
-        transition: all 750ms;
+         transition: all 1s;
     }
 }

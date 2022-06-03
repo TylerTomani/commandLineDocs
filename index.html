@@ -7,49 +7,75 @@
     <title>commandLineDocumenttion</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="js/dropDown.js" defer></script>
+    
 </head>
 <body>
     <header>
-        <h1>Command Line Documentation</h1>
+        <h1>Command Line Documentation </h1>
 
     </header>
-    <nav id="drop-down-links">
+    <nav id="subjects">
         <ul>
             <!-- <li><a href="#basics" class="drop-link-top">Basics</a></li> -->
-            <li><a href="#basics" class="drop-link-top">Basic Command Line</a></li>
-            <li><a href="#bash-scripting" class="drop-link-top">Bash scripiting</a> </li>
+            <li><a tabindex="1" href="#cmd-line-basics" class="subject">Basic Command Line</a></li>
+            <li><a tabindex="2" href="#bash-scripting" class="subject">Bash scripiting</a> </li>
+            <li><a tabindex="3" href="#regex" class="subject">Regular Expressions</a> </li>
         </ul>
     </nav>
 
     <main class="">
-        <aside id="drop-downs" class="">
-            <div id="basics" class="topic">
+        <aside id="side-bar" class="">
+
+            <div id="cmd-line-basics" class="sidebar-subject">
+                <h3>Command line</h3>
                 <ul>
-                    <li><a href="#" class="drop-link-aside">File Managment</a>
+                    <li><a href="#" class="topic-link">File Managment</a>
                         <ul>
                             <li><a href="#" class="noref">mkdir</a><a href="basics/01-creatingDirectories/creatingDirectories.html" class="hide ref"></a></li>
                             <li><a href="#" class="noref">sym links</a><a href="basics/02-creatingSymbolicLinks/symbolicLinks.html" class="hide ref"></a></li>
                         </ul>
                     </li>
-                    <li><a href="#">System Specs</a></li>
-                    <li><a href="#">Disk Management</a></li>
+                    <li><a href="#" class="topic-link">System Specs</a>
+                        <ul>
+                            <li><a href="#">a</a></li>
+                            <li><a href="#">b</a></li>
+                            <li>b</li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="topic-link">Disk Management</a></li>
                 </ul>
             </div>
-            <div id="bash-scripting" class="hide topic">
+
+            <div id="bash-scripting" class="sidebar-subject hide">
+                <h3>Bash scripiting</h3>
                 <ul>
-                    <li><a href="#" class="drop-link-aside">basics</a>
+                    <li><a href="#" class="topic-link">bash script basics</a>
                         <ul>
                             <li><a href="#">placeholder</a></li>
+                            <li><a href="#">placeholder2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="regex" class="sidebar-subject hide">
+                <h3>Regex</h3>
+                <ul>
+                    <li><a href="#" class="topic-link">basics Regex</a>
+                        <ul>
+                            <li><a href="#">a</a></li>
+                            <li><a href="#">b</a></li>
+                            <li><a href="#">c</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </aside>
         
-        <section id="section-select">
+        <section id="main-content">
             <h2>Welcome to Command Line Explained Documentation </h2>
             <h3>Unit subject selection</h3>
-            <iframe src="" frameborder="0"></iframe>
+            <iframe scrolling="no" src="" frameborder="0"></iframe>
         </section>
     </main>
     
