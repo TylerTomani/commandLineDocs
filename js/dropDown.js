@@ -62,6 +62,8 @@ sidebarSubjects.forEach(topic => {
 allSubTopics.forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault();
+        // let placeText = mainContent.querySelector("#main-placeholder-text");
+        // mainContent.removeChild(placeText)
         let nextA = e.target.nextElementSibling;
         let href = nextA.getAttribute("href")
         console.log(href)
