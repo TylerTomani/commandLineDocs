@@ -2,6 +2,7 @@ const subjects = document.querySelectorAll(".subject");
 const sidebarSubjects = document.querySelectorAll(".sidebar-subject");
 const subLists = document.querySelectorAll(".sidebar-subject > ul > li > ul ");
 const mainContent = document.getElementById("main-content");
+const instructions = document.getElementById("instructions");
 const iframe = mainContent.querySelector("iframe");
 const allSubTopics = document.querySelectorAll("aside > div > ul > li > ul > li > a")
 /* Hide unselected top subject links. Have Basic Command Line subject in side bar
@@ -60,17 +61,41 @@ sidebarSubjects.forEach(topic => {
 //Fill Main-Content
 
 allSubTopics.forEach(a => {
+    let toggle = false;
     a.addEventListener('click', e => {
         e.preventDefault();
-        // let placeText = mainContent.querySelector("#main-placeholder-text");
-        // mainContent.removeChild(placeText)
         let nextA = e.target.nextElementSibling;
-        let href = nextA.getAttribute("href")
+        let href = nextA.getAttribute('href');
+        if(!toggle){
+            instructions.classList.add('hide')
+            console.log(instructions)
+            iframe.src = href
+        } else {
+            instructions.classList.remove('hide')
+            iframe.src = ""
+        }
+        toggle = !toggle;
         console.log(href)
-        iframe.src = href
         console.log(iframe)
 
     })
 })    
 
+// Found this code at 
+//https://www.geeksforgeeks.org/how-to-adjust-the-width-and-height-of-iframe-to-fit-with-content-in-it/
+// Adjusting the iframe height onload event
+iframe.onload = function()
+// function execute while load the iframe
+{
+  // set the height of the iframe as 
+  // the height of the iframe content
+  iframe.style.height = 
+  iframe.contentWindow.document.body.scrollHeight + 'px';
+   
 
+ // set the width of the iframe as the 
+ // width of the iframe content
+ iframe.style.width  = 
+  frame.contentWindow.document.body.scrollWidth+'px';
+      
+}

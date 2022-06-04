@@ -4,13 +4,19 @@
     /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
+.hide {
+    display: none;
+}
+.show {
+    display: inline-block;
+}
 body {
     margin: .5%;
 }
 header {
     height: 10vh;
 }
-/*  Topic Selection */
+/*  Subject Selection */
 nav#subjects {
     background-color: navajowhite;
     border-top: 1px solid black;
@@ -41,20 +47,9 @@ nav#subjects > ul > li > a:visited{
 }
 
 /* Main Body Aside and Page Content */
-main {
-    display: flex;
-}
-#section-select {
-    text-align: center;
-    width: 85%;
-    height: 100vh;
-}
-#section-select > iframe {
-    width: 100%;
-    height: 100%;
-}
 
-/* Side menu */
+
+/* Side bar */
 aside#side-bar {
     display: flex;
     flex-direction: column;
@@ -83,16 +78,27 @@ aside#side-bar {
 #side-bar > div > ul > li > a:visited {
     color: black;
 }
-iframe {
+section#main-content{
+    width: 85%;
+}
+
+
+main.flex-container {
+
+    display: flex;
+
+}
+
+#main-content {
+    text-align: center;
+    width: 85%;
+    height: 100vh;
+}
+#main-content > iframe {
     width: 100%;
     height: 100vh;
 }
-.hide {
-    display: none;
-}
-.show {
-    display: inline-block;
-}
+
 @media screen and (max-width: 800px){
     header > h1 {
         font-size: 1.5rem;
@@ -102,15 +108,50 @@ iframe {
         font-size: .9rem ;
     }
     aside#side-bar {
-        position: absolute;
+        /* position: absolute; 
         transform: translate(-100%); 
-         transition: all .65s;
+        transition: all .65s; */
     }
-}
-@media screen and (min-width: 801px){
-    aside#side-bar {
+    aside#side-bar  {
+
+        flex-direction: row;
+        width: 100%;
+        height: 10%;
+    }
+    aside#side-bar > .sidebar-subject {
+        font-size: 85%;
+        max-height: 100px;
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+    }
+    aside#side-bar > .sidebar-subject > ul > li {
+        border: none;
+        display: inline-block;
         position: relative;
-        transform: translate(0); 
-         transition: all 1s;
+        /* margin: ; */
     }
-}
+    aside#side-bar > .sidebar-subject > ul > li > ul > li{
+        border: none;
+        display: inline-block;
+
+    }
+    main.flex-container {
+        /* display: flex; */
+        flex-direction: column;
+    }
+    #main-content {
+        text-align: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    #main-content#instructions {
+        width: 100vw;
+    }
+    #main-content > iframe {
+        /* border: 2px solid blue; */
+        width: 120%;
+        height: 100vh;
+    }
+    
+
+} 
