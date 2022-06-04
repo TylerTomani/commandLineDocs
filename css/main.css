@@ -148,7 +148,7 @@ main.flex-container {
         width: 100vw;
     }
     #main-content > iframe {
-        /* border: 2px solid blue; */
+        border: 2px solid blue;
         width: 120%;
         height: 100vh;
     }
